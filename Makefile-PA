@@ -1,0 +1,13 @@
+all: build_verif_p1 build_verif_p2 build_verif_p3
+
+build_verif_p1:
+	g++ -o verif_p1 -std=c++11 -Wall -lm -O3 _utils/verif_p1.cpp
+
+build_verif_p2:
+	g++ -o verif_p2 -std=c++11 -Wall -lm -O3 _utils/verif_p2.cpp
+
+build_verif_p3:
+	g++ -o verif_p3 -std=c++11 -Wall -lm -O3 _utils/verif_p3.cpp
+
+clean:
+	rm -f verif_p1 verif_p2 verif_p3

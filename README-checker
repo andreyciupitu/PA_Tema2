@@ -1,0 +1,28 @@
+===============================================================================
+=========================== PA 2017 - checker tema 2 ==========================
+===============================================================================
+
+Rulare: ./check.sh
+
+* sursele + Makefile trebuie sa se afle in directorul curent
+
+Run time error = eroare aparuta in timpul rularii unui test
+TLE = time limit exceeded (s-a depasit limita de timp a testului curent)
+WA = wrong answer (valoarea din fisierul .out difera de cea din .ref)
+
+Timpi de executie problema $id:
+	- C/C++: _utils/timeout/c.timeout$id
+
+	- Java: _utils/timeout/java.timeout$id
+
+	- Python: _utils/timeout/py.timeout$id
+
+Checker coding style:
+	- C/C++: utils/coding_style/check_cpp.py
+		- sursa: https://google.github.io/styleguide/cppguide.html
+
+	- Java: utils/coding_style/check_java.jar
+		- sursa: http://checkstyle.sourceforge.net/google_style.html
+
+	- Python: verificarea se va face in momentul corectarii temelor
+		- sfat: folositi pylint (https://github.com/PyCQA/pylint) pentru un coding style bun
