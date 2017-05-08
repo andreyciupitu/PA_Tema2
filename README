@@ -1,0 +1,54 @@
+Tema #2 PA
+
+Nume: Ciupitu Andrei-Valentin
+Grupa: 322CC
+
+========================== Detalii de implementare =============================
+
+======== Problema 1 ========
+
+    Pentru rezolvarea acestei probleme am construit un graf care are drept
+noduri literele alfabetului. Arcele grafului sunt constrangerile impuse de
+cuvintele citite. Se compara cuvintele 2 cate 2 pana la intalnirea primului
+caracter diferit. O diferenta intre 2 caractere x si y se va adauga in graf
+ca un arc de la x la y. Daca un cuvant difera doar prin lungime de
+predecesorul sau nu se va adauga nicio muchie in graf.
+    Dupa ce am construit graful, aplic o sortare topologica pentru a
+forma o ordine valida a nodurilor. Daca se intalneste un ciclu in timpul
+sortarii inseamna ca nu exista o ordine valida.
+    Complexitatea algoritmului este O(N), unde N reprezinta numarul de cuvinte.
+
+======== Problema 2 ========
+
+    Pentru rezolvarea acestei probleme am utilizat programarea dinamica. Am
+retinut costurile in pentru fiecare pokemon in matrici separate si apoi am
+aplicat Floyd-Warshall pentru a determina costurile intre oricare doua noduri
+pentru fiecare pokemon in parte.
+    Am construit apoi o serie de matrici ce contin costul minim intre 2 noduri
+folosind k schimbari. Pentru pasul initial k = 0, am retinut minimul dintre
+distantele obtinute cu Floyd-Warshall:
+    total_costs[0][i][j] = min(pokemon_costs[p][i][j]), p = 1 : numarul de
+pokemoni.
+    La fiecare pas k se incearca sa se adauge un schimb nou, incercand fiecare
+nod u astfel:
+    total_costs[k][i][j] = min(total_costs[k-1][i][j], total_costs[k-1][i][u]
+                            + costul minim de la u la j), u = 1 : n.
+    Complexitatea acestui algoritm este de O(K * N ^ 3) pentru programarea
+dinamica si O(P * N ^ 3) pentru Floyd-Warshall asadar complexitatea totala
+va fi O((K + P) * N ^ 3), unde K reprezinta numarul de schimbari, P numarul de
+pokemoni, iar N numarul de noduri din graf.
+
+======== Problema 3 ========
+
+    Pentru rezolvarea acestei probleme am parcurs de 2 ori graful, folosind
+BSF, mai intai de la nodul N la nodul 1 si apoi invers, retinand de fiecare
+data numarul de cai minime si distanta de la nodul de start pana la celelalte
+noduri. Am parcurs apoi nodurile, calculand media ceruta pentru nodurile
+aflate pe cel putin o cale minima de la N la 1.
+    Un nod se afla pe o cale minima de la N la 1 daca distanta de la N la nodul
+respectiv plus distanta de la 1 la nodul respectiv este egala cu distanta de la
+N la 1.
+    Numarul de cai minime de la N la 1 care trec printr-un anume nod va fi
+egal cu numarul de cai minime de la N la nodul respectiv inmultit cu numarul
+de cai minime de la 1 la nodul respectiv.
+    Complexitatea algoritmului este O(N + M).
